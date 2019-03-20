@@ -1,5 +1,7 @@
 package junit.org.rapidpm.vaadin;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import javax.sql.DataSource;
 
 import org.junit.jupiter.api.Assertions;
@@ -12,11 +14,13 @@ import junit.org.rapidpm.vaadin.extensions.PersistenceExtension;
 @ExtendWith(PersistenceExtension.class)
 @ExtendWith(DataSourceParameterResolver.class)
 class LoginServiceTest {
+
+
   @Test
   void test001(DataSource dataSource) {
     final boolean checkLogin = new LoginService(dataSource)
         .checkLogin("admin" , "admin");
-    Assertions.assertTrue(checkLogin);
+    assertTrue(checkLogin);
   }
 
   @Test

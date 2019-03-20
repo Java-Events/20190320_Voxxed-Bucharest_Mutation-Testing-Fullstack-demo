@@ -2,6 +2,8 @@ package junit.org.rapidpm.vaadin;
 
 
 import static org.rapidpm.vaadin.BasicTestUIRunner.localeIP;
+import static org.rapidpm.vaadin.LoginViewOO.PASSWORD;
+import static org.rapidpm.vaadin.LoginViewOO.USERNAME;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -35,8 +37,8 @@ public class VaadinAppTest {
 
     webDriverInfo.getWebdriver().get("http://" + webDriverInfo.getHostIpAddress() + ":7777/");
 
-    testCase.$(TextFieldElement.class).id(LoginViewOO.USERNAME).setValue("admin");
-    testCase.$(PasswordFieldElement.class).id(LoginViewOO.PASSWORD).setValue("admin");
+    testCase.$(TextFieldElement.class).id(USERNAME).setValue("admin");
+    testCase.$(PasswordFieldElement.class).id(PASSWORD).setValue("admin");
     testCase.$(ButtonElement.class).id(LoginViewOO.BTN_LOGIN).click();
 
     final String text = testCase.$(SpanElement.class).id(MainView.SPAN_ID).getText();
